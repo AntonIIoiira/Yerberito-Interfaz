@@ -3,26 +3,32 @@
 % Base de conocimientos
 planta(jengibre, 'Zingiber officinale', ['Gingerol', 'Shogaol', 'Zingibereno'], ['Extractos de jengibre', 'Capsulas', 'Tes'], ['Antiinflamatorio', 'Antioxidante', 'Antiemetico'], ['Nauseas', 'Artritis', 'Resfriados'], ['Te', 'Infusion', 'Polvo'], 'Asia tropical', 'C:/Proyecto/plantas/Jengibre.jpg').
 planta(menta, 'Mentha spicata', ['Mentol', 'Mentona', 'Acido rosmarinico'], ['Aceite esencial', 'Tes', 'Unguentos'], ['Digestivo', 'Carminativo', 'Analgesico'], ['Indigestion', 'Sindorme del intestino irritable', 'Dolores de cabeza'], ['Te', 'Infusion', 'Aceite esencial'], 'Europa y Asia', 'C:/Proyecto/plantas/Menta.jpg').
-planta(eucalipto, 'Eucalyptus globulus', ['Eucaliptol', 'Flavonoides', 'Taninos'], ['Aceite esencial', 'Pastillas', 'Jarabes'], ['Descongestionante', 'Expectorante', 'Antiseptico'], ['Resfriados', 'Bronquitis', 'Sinusitis'], ['Inhalacion de vapor', 'Infusion', 'Aceite esencial'], 'Australia', 'C:/Proyecto/plantas/Eucalipto.jpg').
+planta(eucalipto, 'Eucalyptus globulus', ['Eucaliptol', 'Flavonoides', 'Taninos'], ['Aceite esencial', 'Pastillas', 'Jarabes'], ['Descongestionante', 'Expectorante', 'Antiseptico'], ['Resfriados', 'Bronquitis', 'Sinusitis'], ['Inhalacion de vapor', 'Infusion', 'Aceite esencial'], 'Australia', 'C:/Proyecto/plantas/Eucaliptojpg.jpg').
 planta(calendula, 'Calendula officinalis', ['Flavonoides', 'Saponinas', 'Carotenoides'], ['Unguentos', 'Tes', 'Tinturas'], ['Antiinflamatorio', 'Cicatrizante', 'Antifungico'], ['Heridas', 'Dermatitis', 'Ulceras gastricas'], ['Infusion', 'Unguento', 'Tintura'], 'Europa meridional', 'C:/Proyecto/plantas/Calendula.jpg').
 planta(geranio, 'Pelargonium graveolens', ['Geraniol', 'Citronelol', 'Linalool'], ['Aceite esencial', 'Cremas', 'Tes'], ['Antiinflamatorio', 'Astringente', 'Antiseptico'], ['Eczema', 'Acne', 'Infecciones cutaneas'], ['Infusion', 'Aceite esencial', 'Cremas'], 'Sudafrica', 'C:/Proyecto/plantas/Geranio.jpg').
 planta(ginseng, 'Panax ginseng', ['Ginsenocidos', 'Polisacaridos', 'Flavonoides'], ['Extractos', 'Capsulas', 'Tes'], ['Adatogeno', 'Inmunoestimulante', 'Antioxidante'], ['Fatiga', 'Estres', 'Debilidad inmunologica'], ['Infusion', 'Capsulas', 'Extracto'], 'Asia (Corea, China)', 'C:/Proyecto/plantas/Ginseng.jpg').
 planta(girasol, 'Helianthus annuus', ['Acido linoleico', 'Vitamina E', 'Fitoesteroles'], ['Aceite de girasol', 'Tes', 'Cremas'], ['Antioxidante', 'Antiinflamatorio', 'Hidratante'], ['Problemas de piel', 'Inflamacion', 'Colesterol alto'], ['Aceite', 'Infusion', 'Cataplasma'], 'America del Norte', 'C:/Proyecto/plantas/Girasol.jpg').
 planta(fenogreco, 'Trigonella foenum-graecum', ['Saponinas', 'Flavonoides', 'Alcaloides'], ['Tes', 'Capsulas', 'Polvos'], ['Digestivo', 'Antiinflamatorio', 'Galactagogo'], ['Indigestion', 'Inflamacion', 'Baja produccion de leche materna'], ['Infusion', 'Capsulas', 'Polvo'], 'Mediterraneo oriental', 'C:/Proyecto/plantas/Fenogreco.jpg').
-planta(genciana, 'Gentiana lutea', ['Gentiopicroside', 'Amarogentina', 'Xantonas'], ['Extractos', 'Tinturas', 'Tes'], ['Digestivo', 'Antipiretico', 'Estimulante del apetito'], ['Indigestion', 'Fiebre', 'Falta de apetito'], ['Infusion', 'Tintura', 'Extracto'], 'Europa central y meridional', 'C:/Proyecto/plantas/Genciana.jpg').
-
 % Ventana principal
 ventana_principal :-
     new(Ventana, dialog('Buscador de Plantas Medicinales')),
     send(Ventana, size, size(400, 300)),
-    send(Ventana, append, new(NombreLabel, label(texto, 'Ingrese el nombre de la planta:'))),
-    send(Ventana, append, new(Nombre, text_item(nombre))),
-    send(Ventana, append, button(buscar, message(@prolog, buscar_planta, Nombre?selection))),
+    send(Ventana, append, new(NombreLabel, label(texto, 'Seleccione el nombre de la planta:'))),
+    findall(Nombre, planta(Nombre, _, _, _, _, _, _, _, _), ListaPlantas),
+    send(Ventana, append, new(NombreComboBox, menu(nombre, cycle))),
+    llenar_combo_box(NombreComboBox, ListaPlantas),
+    send(Ventana, append, button(buscar, message(@prolog, buscar_planta, NombreComboBox?selection))),
     send(Ventana, append, button('Listar Plantas', message(@prolog, listar_plantas))),
-    send(Ventana, append, button('Elementos de Planta', message(@prolog, elementos_de_planta_interfaz, Nombre?selection))),
-    send(Ventana, append, button('Enfermedades de Planta', message(@prolog, enfermedades_de_planta_interfaz, Nombre?selection))),
+    send(Ventana, append, button('Elementos de Planta', message(@prolog, elementos_de_planta_interfaz, NombreComboBox?selection))),
+    send(Ventana, append, button('Enfermedades de Planta', message(@prolog, enfermedades_de_planta_interfaz, NombreComboBox?selection))),
     send(Ventana, append, button('Plantas que Curan Enfermedad', message(@prolog, buscar_plantas_que_curan))),
     send(Ventana, open).
+
+% Llenar el combo box con las opciones de plantas
+llenar_combo_box(_, []).
+llenar_combo_box(ComboBox, [Cabeza|Cola]) :-
+    send(ComboBox, append, Cabeza),
+    llenar_combo_box(ComboBox, Cola).
 
 % Buscar y mostrar información de la planta
 buscar_planta(Nombre) :-
@@ -31,7 +37,7 @@ buscar_planta(Nombre) :-
     ->  mostrar_planta(Nombre)
     ;   format('La planta ~w no se encuentra en la base de datos.~n', [Nombre]),  % Depuración
         new(VentanaError, dialog('Error')),
-        send(VentanaError, append, new(Label, label(nombre, 'La planta no se encuentra en la base de datos.'))),
+        send(VentanaError, append, new(LabelError, label(nombre, 'La planta no se encuentra en la base de datos.'))),
         send(VentanaError, open)
     ).
 
@@ -86,7 +92,7 @@ elementos_de_planta_interfaz(Nombre) :-
         send(D, append, new(L, label(elementos, string('Elementos en %s: %s', Nombre, ElementosStr)))),
         send(D, open)
     ;   new(VentanaError, dialog('Error')),
-        send(VentanaError, append, new(Label, label(nombre, 'La planta no se encuentra en la base de datos.'))),
+        send(VentanaError, append, new(LabelError, label(nombre, 'La planta no se encuentra en la base de datos.'))),
         send(VentanaError, open)
     ).
 
@@ -98,7 +104,7 @@ enfermedades_de_planta_interfaz(Nombre) :-
         send(D, append, new(L, label(enfermedades, string('Enfermedades que cura %s: %s', Nombre, EnfermedadesStr)))),
         send(D, open)
     ;   new(VentanaError, dialog('Error')),
-        send(VentanaError, append, new(Label, label(nombre, 'La planta no se encuentra en la base de datos.'))),
+        send(VentanaError, append, new(LabelError, label(nombre, 'La planta no se encuentra en la base de datos.'))),
         send(VentanaError, open)
     ).
 
@@ -118,9 +124,8 @@ plantas_que_curan_interfaz(Enfermedad) :-
         send(D, append, new(L, label(plantas, string('Plantas que curan %s: %s', Enfermedad, PlantasStr)))),
         send(D, open)
     ;   new(VentanaError, dialog('Error')),
-        send(VentanaError, append, new(Label, label(nombre, 'No se encontraron plantas que curen esa enfermedad.'))),
+        send(VentanaError, append, new(LabelError, label(nombre, 'No se encontraron plantas que curen esa enfermedad.'))),
         send(VentanaError, open)
     ).
 
-:- ventana_principal.
-s
+:- initialization(ventana_principal).
