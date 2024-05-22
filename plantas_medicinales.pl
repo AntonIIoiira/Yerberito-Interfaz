@@ -9,6 +9,7 @@ planta(geranio, 'Pelargonium graveolens', ['Geraniol', 'Citronelol', 'Linalool']
 planta(ginseng, 'Panax ginseng', ['Ginsenocidos', 'Polisacaridos', 'Flavonoides'], ['Extractos', 'Capsulas', 'Tes'], ['Adatogeno', 'Inmunoestimulante', 'Antioxidante'], ['Fatiga', 'Estres', 'Debilidad inmunologica'], ['Infusion', 'Capsulas', 'Extracto'], 'Asia (Corea, China)', 'C:/Proyecto/plantas/Ginseng.jpg').
 planta(girasol, 'Helianthus annuus', ['Acido linoleico', 'Vitamina E', 'Fitoesteroles'], ['Aceite de girasol', 'Tes', 'Cremas'], ['Antioxidante', 'Antiinflamatorio', 'Hidratante'], ['Problemas de piel', 'Inflamacion', 'Colesterol alto'], ['Aceite', 'Infusion', 'Cataplasma'], 'America del Norte', 'C:/Proyecto/plantas/Girasol.jpg').
 planta(fenogreco, 'Trigonella foenum-graecum', ['Saponinas', 'Flavonoides', 'Alcaloides'], ['Tes', 'Capsulas', 'Polvos'], ['Digestivo', 'Antiinflamatorio', 'Galactagogo'], ['Indigestion', 'Inflamacion', 'Baja produccion de leche materna'], ['Infusion', 'Capsulas', 'Polvo'], 'Mediterraneo oriental', 'C:/Proyecto/plantas/Fenogreco.jpg').
+
 % Ventana principal
 ventana_principal :-
     new(Ventana, dialog('Buscador de Plantas Medicinales')),
@@ -22,6 +23,7 @@ ventana_principal :-
     send(Ventana, append, button('Elementos de Planta', message(@prolog, elementos_de_planta_interfaz, NombreComboBox?selection))),
     send(Ventana, append, button('Enfermedades de Planta', message(@prolog, enfermedades_de_planta_interfaz, NombreComboBox?selection))),
     send(Ventana, append, button('Plantas que Curan Enfermedad', message(@prolog, buscar_plantas_que_curan))),
+    send(Ventana, append, button('Botiquín', message(@prolog, mostrar_botiquin))),
     send(Ventana, open).
 
 % Llenar el combo box con las opciones de plantas
@@ -127,5 +129,18 @@ plantas_que_curan_interfaz(Enfermedad) :-
         send(VentanaError, append, new(LabelError, label(nombre, 'No se encontraron plantas que curen esa enfermedad.'))),
         send(VentanaError, open)
     ).
+
+% Mostrar botiquín
+mostrar_botiquin :-
+    PlantasBotiquin = [
+        'Anis Estrella', 'Menta', 'Arnica', 'Salvia', 'Tilia', 'Eucalipto', 
+        'Yerbabuena', 'Manzanilla', 'Cola de Caballo', 'Romero', 'Toronjil', 
+        'Sanguinaria', 'Linaza', 'Hamamelis', 'Zarzaparrilla', 'Boldo', 
+        'Diente de Leon', 'Azahar', 'Malva', 'Marrubio', 'Rosal'
+    ],
+    atomic_list_concat(PlantasBotiquin, ', ', PlantasStr),
+    new(D, dialog('Botiquin de Plantas')),
+    send(D, append, new(L, label(plantas, PlantasStr))),
+    send(D, open).
 
 :- initialization(ventana_principal).
