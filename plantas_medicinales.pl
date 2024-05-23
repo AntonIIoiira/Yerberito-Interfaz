@@ -3,7 +3,7 @@
 % Base de conocimientos
 planta(jengibre, 'Zingiber officinale', ['Gingerol', 'Shogaol', 'Zingibereno'], ['Extractos de jengibre', 'Capsulas', 'Tes'], ['Antiinflamatorio', 'Antioxidante', 'Antiemetico'], ['Nauseas', 'Artritis', 'Resfriados'], ['Te', 'Infusion', 'Polvo'], 'Asia tropical', 'C:/Proyecto/plantas/Jengibre.jpg').
 planta(menta, 'Mentha spicata', ['Mentol', 'Mentona', 'Acido rosmarinico'], ['Aceite esencial', 'Tes', 'Unguentos'], ['Digestivo', 'Carminativo', 'Analgesico'], ['Indigestion', 'Sindorme del intestino irritable', 'Dolores de cabeza'], ['Te', 'Infusion', 'Aceite esencial'], 'Europa y Asia', 'C:/Proyecto/plantas/Menta.jpg').
-planta(eucalipto, 'Eucalyptus globulus', ['Eucaliptol', 'Flavonoides', 'Taninos'], ['Aceite esencial', 'Pastillas', 'Jarabes'], ['Descongestionante', 'Expectorante', 'Antiseptico'], ['Resfriados', 'Bronquitis', 'Sinusitis', 'Tos'], ['Inhalacion de vapor', 'Infusion', 'Aceite esencial'], 'Australia', 'C:/Proyecto/plantas/Eucalipto.jpg').
+planta(eucalipto, 'Eucalyptus globulus', ['Eucaliptol', 'Flavonoides', 'Taninos'], ['Aceite esencial', 'Pastillas', 'Jarabes'], ['Descongestionante', 'Expectorante', 'Antiseptico'], ['Resfriados', 'Bronquitis', 'Sinusitis'], ['Inhalacion de vapor', 'Infusion', 'Aceite esencial'], 'Australia', 'C:/Proyecto/plantas/Eucalipto.jpg').
 planta(calendula, 'Calendula officinalis', ['Flavonoides', 'Saponinas', 'Carotenoides'], ['Unguentos', 'Tes', 'Tinturas'], ['Antiinflamatorio', 'Cicatrizante', 'Antifungico'], ['Heridas', 'Dermatitis', 'Ulceras gastricas'], ['Infusion', 'Unguento', 'Tintura'], 'Europa meridional', 'C:/Proyecto/plantas/Calendula.jpg').
 planta(geranio, 'Pelargonium graveolens', ['Geraniol', 'Citronelol', 'Linalool'], ['Aceite esencial', 'Cremas', 'Tes'], ['Antiinflamatorio', 'Astringente', 'Antiseptico'], ['Eczema', 'Acne', 'Infecciones cutaneas'], ['Infusion', 'Aceite esencial', 'Cremas'], 'Sudafrica', 'C:/Proyecto/plantas/Geranio.jpg').
 planta(ginseng, 'Panax ginseng', ['Ginsenocidos', 'Polisacaridos', 'Flavonoides'], ['Extractos', 'Capsulas', 'Tes'], ['Adatogeno', 'Inmunoestimulante', 'Antioxidante'], ['Fatiga', 'Estres', 'Debilidad inmunologica'], ['Infusion', 'Capsulas', 'Extracto'], 'Asia (Corea, China)', 'C:/Proyecto/plantas/Ginseng.jpg').
@@ -64,10 +64,94 @@ grupo_planta(toxica, ['Belladona', 'Digital', 'Coca']).
 grupo_planta(vermifuga, ['Artemisa']).
 grupo_planta(vulneraria, ['Calendula']).
 
+% Base de conocimientos para enfermedades
+enfermedad_planta(abscesos, ['Malva']).
+enfermedad_planta(absceso_hepatico, ['Zarzaparrilla']).
+enfermedad_planta(acidez_estomacal, ['Anis', 'Perejil']).
+enfermedad_planta(acido_urico, ['Sanguinaria', 'Limon', 'Sauco']).
+enfermedad_planta(acne, ['Arnica']).
+enfermedad_planta(aftas, ['Llanten', 'Fenogreco', 'Zarzamora']).
+enfermedad_planta(agotamiento, ['Salvia', 'Tilo', 'Valeriana']).
+enfermedad_planta(agruras, ['Yerba_buena', 'Manzanilla', 'Jugo_de_limon_o_toronja']).
+enfermedad_planta(albuminuria, ['Pinguica', 'Quina_roja', 'Encino_rojo']).
+enfermedad_planta(alcoholismo, ['Pimiento']).
+enfermedad_planta(almorranas, ['Salvia', 'Hamamelis', 'Sanguinaria', 'Cola_de_caballo', 'Arnica']).
+enfermedad_planta(anemia, ['Ajenjo', 'Germen_de_trigo', 'Quina', 'Canela']).
+enfermedad_planta(anginas, ['Eucalipto', 'Cebada', 'Salvia', 'Tabachin', 'Borraja']).
+enfermedad_planta(anorexia, ['Ajenjo', 'Genciana', 'Yerbabuena']).
+enfermedad_planta(aterosclerosis, ['Limon', 'Genciana', 'Cardo', 'Zarzaparrilla', 'Arnica', 'Chicalote', 'Alcanfor', 'Toronja']).
+enfermedad_planta(artritis, ['Limon', 'Genciana', 'Cardo', 'Zarzaparrilla', 'Arnica', 'Chicalote', 'Alcanfor', 'Toronja']).
+enfermedad_planta(asma, ['Eucalipto', 'Marrubio', 'Toloache', 'Oregano', 'Salvia']).
+enfermedad_planta(atonia_estomacal, ['Lupulo', 'Eucalipto', 'Cuasia']).
+enfermedad_planta(bazo, ['Uva', 'Cerezo']).
+enfermedad_planta(inflamacion, ['Malva', 'Rosal', 'Limon', 'Salvia']).
+enfermedad_planta(estomatitis, ['Rosal', 'Encina', 'Salvia', 'Zarzamora']).
+enfermedad_planta(bronquitis, ['Eucalipto', 'Borraja', 'Anacahuite', 'Gordolobo', 'Tilo', 'Benjui', 'Marrubio', 'Rabano']).
+enfermedad_planta(bronconeumonia, ['Gordolobo', 'Eucalipto', 'Ipecacuana', 'Mostaza']).
+enfermedad_planta(caida_de_cabello, ['Ortiga', 'Espinosilla', 'Marrubio', 'Romero']).
+enfermedad_planta(calambres, ['Anis', 'Tila', 'Manzanilla', 'Ajenjo']).
+enfermedad_planta(calculos_biliares, ['Diente_de_leon', 'Aceite_de_oliva', 'Retama']).
+enfermedad_planta(calculos_renales, ['Cabellos_de_elote', 'Pinguica', 'Cola_de_caballo']).
+enfermedad_planta(callos, ['Ajo', 'Cebolla']).
+enfermedad_planta(caries, ['Hiedra', 'Cola_de_caballo']).
+enfermedad_planta(caspa, ['Ortiga', 'Limon', 'Romero']).
+enfermedad_planta(cancer_del_utero, ['Cuachalalate', 'Llanten', 'Siempreviva']).
+enfermedad_planta(ciatica, ['Mastuerzo', 'Higuera', 'Sauco']).
+enfermedad_planta(circulacion, ['Toronjil', 'Sanguinaria', 'Salvia', 'Hamamelis']).
+enfermedad_planta(cistitis, ['Cola_de_caballo', 'Doradilla', 'Ajo', 'Cabellos_de_elote']).
+enfermedad_planta(colicos, ['Menta', 'Hinojo', 'Manzanilla', 'Toronjil', 'Boldo']).
+enfermedad_planta(colitis, ['Linaza', 'Anis', 'Romero', 'Cola_de_caballo']).
+enfermedad_planta(contusiones, ['Arnica', 'Hamamelis', 'Laurel', 'Brionia']).
+enfermedad_planta(depurativos_de_sangre, ['Diente_de_leon', 'Apio', 'Sanguinaria', 'Zarzaparrilla', 'Berro']).
+enfermedad_planta(diabetes, ['Matarique', 'Tronadora', 'Eucalipto', 'Damiana']).
+enfermedad_planta(diarrea, ['Capulin', 'Mezquite', 'Tlalchichinole', 'Linaza', 'Membrillo', 'Arroz', 'Cebada', 'Guayaba', 'Granada', 'Manzanilla', 'Siempreviva']).
+enfermedad_planta(diarrea_con_sangre, ['Chaparro_amargoso', 'Muicle', 'Monacillo']).
+enfermedad_planta(difteria, ['Limon', 'Naranja']).
+enfermedad_planta(disenteria, ['Tamarindo', 'Chaparro_amargoso', 'Ipecacuana', 'Cedran']).
+enfermedad_planta(dispepsia, ['Anis', 'Menta', 'Yerbabuena', 'Dienta', 'Te_limon', 'Quina', 'Genciana', 'Tabequillo', 'Ruibarbo']).
+enfermedad_planta(dolor, ['Anis_estrella', 'Valeriana', 'Manzanilla', 'Alcanfor']).
+enfermedad_planta(empacho, ['Tamarindo']).
+enfermedad_planta(enteritis, ['Linaza', 'Cedron', 'Llanten']).
+enfermedad_planta(epilepsia, ['Valeriana']).
+enfermedad_planta(epistaxis, ['Hierba_de_pollo', 'Cebolla', 'Perejil']).
+enfermedad_planta(erisipela, ['Sauco', 'Hiedra', 'Zanahoria']).
+enfermedad_planta(escarlatina, ['Borraja', 'Sauco', 'Cebolla']).
+enfermedad_planta(escorbuto, ['Ajo', 'Limon', 'Berro', 'Cebolla', 'Geranio']).
+enfermedad_planta(estrenimiento, ['Ciruela', 'Linaza', 'Chia', 'Tamarindo', 'Agar-agar']).
+enfermedad_planta(faringitis, ['Eucalipto', 'Lavanda', 'Anacahite']).
+enfermedad_planta(flatulencias, ['Apio', 'Tomillo', 'Perejil', 'Anis_estrella', 'Hinojo', 'Toronjil', 'Romero', 'Ruibarbo', 'Ruda', 'Menta']).
+enfermedad_planta(flebitis, ['Arnica', 'Alfalfa', 'Lino', 'Malvavisco', 'Kamero', 'Quina']).
+enfermedad_planta(flema, ['Genciana', 'Oregano']).
+enfermedad_planta(forunculos, ['Fenogreco', 'Malvavisco', 'Hiedra']).
+enfermedad_planta(gastralgia, ['Manzanilla', 'Anis_estrella']).
+enfermedad_planta(gonorrea, ['Cola_de_caballo', 'Doradita', 'Zarzaparrilla']).
+enfermedad_planta(gota, ['Apio', 'Cerveza', 'Limon', 'Pino', 'Alcanfor', 'Aconito', 'Belladona', 'Beleno', 'Colchico', 'Chicalote']).
+enfermedad_planta(agrieras_del_ano, ['Encina']).
+enfermedad_planta(grietas_del_pezon, ['Encina', 'Nogal', 'Milenrama']).
+enfermedad_planta(gripe, ['Eucalipto', 'Limon', 'Quina', 'Zarzaparrilla', 'Calendula']).
+enfermedad_planta(halitosis, ['Hinojo', 'Menta']).
+enfermedad_planta(hemorragia_interna, ['Ortiga', 'Rosal']).
+enfermedad_planta(hepatitis, ['Retama', 'Boldo', 'Alcachofa', 'Prodigiosa', 'Cascara_sagrada']).
+enfermedad_planta(hernia, ['Helecho', 'Ricino', 'Tabaco']).
+enfermedad_planta(herpes, ['Linaza', 'Llanten']).
+enfermedad_planta(heridas, ['Arnica', 'Hamamelis']).
+enfermedad_planta(hidropesia, ['Alcachofa', 'Cardo', 'Perejil', 'Sauco', 'Benos', 'Retama']).
+enfermedad_planta(higado, ['Marrubio', 'Boldo', 'Doradilla', 'Ruibarbo']).
+enfermedad_planta(colicos, ['Manzanilla']).
+enfermedad_planta(bilis, ['Lechuga', 'Tila']).
+enfermedad_planta(lictericia, ['Papaloquelite', 'Achicoria', 'Berros', 'Llanten', 'Retama', 'Tecomasuchil']).
+enfermedad_planta(hipertension, ['Ajo', 'Esparrago', 'Alpiste', 'Muerdago']).
+enfermedad_planta(hipotension, ['Miel', 'Nuez_de_kola', 'Crategus', 'Acedera']).
+enfermedad_planta(hipo, ['Anis', 'Hinojo', 'Tila', 'Valeriana']).
+enfermedad_planta(histerismo, ['Azahar', 'Beleno', 'Gelsemio', 'Tila', 'Valeriana']).
+enfermedad_planta(insomnio, ['Pasiflora', 'Azahar', 'Menta', 'Manzanilla', 'Lechuga']).
+enfermedad_planta(intestino, ['Genciana', 'Melisa']).
+enfermedad_planta(impotencia_sexual, ['Yohimbo', 'Damiana', 'Nivea_vomica', 'Aguacate']).
+
 % Ventana principal
 ventana_principal :-
     new(Ventana, dialog('Buscador de Plantas Medicinales')),
-    send(Ventana, size, size(600, 400)),
+    send(Ventana, size, size(600, 600)),
     send(Ventana, append, new(NombreLabel, label(texto, 'Seleccione el nombre de la planta:'))),
     findall(Nombre, planta(Nombre, _, _, _, _, _, _, _, _), ListaPlantas),
     send(Ventana, append, new(NombreComboBox, menu(nombre, cycle))),
@@ -88,6 +172,11 @@ ventana_principal :-
     send(Ventana, append, new(GrupoComboBox, menu(grupo, cycle))),
     llenar_combo_box_grupos(GrupoComboBox),
     send(Ventana, append, button('Mostrar Plantas por Grupo', message(@prolog, mostrar_plantas_por_grupo, GrupoComboBox?selection))),
+
+    % Combo box para seleccionar enfermedades
+    send(Ventana, append, new(EnfermedadComboBox, menu(enfermedad, cycle))),
+    llenar_combo_box_enfermedades(EnfermedadComboBox),
+    send(Ventana, append, button('Mostrar Plantas que Curan', message(@prolog, mostrar_plantas_por_enfermedad, EnfermedadComboBox?selection))),
 
     send(Ventana, open).
 
@@ -117,6 +206,24 @@ llenar_combo_box_grupos(ComboBox) :-
         laxante, pectoral, sedante, tonica, toxica, vermifuga, vulneraria
     ],
     llenar_combo_box(ComboBox, Grupos).
+
+% Llenar el combo box con las enfermedades
+llenar_combo_box_enfermedades(ComboBox) :-
+    Enfermedades = [
+        abscesos, absceso_hepatico, acidez_estomacal, acido_urico, acne, aftas,
+        agotamiento, agruras, albuminuria, alcoholismo, almorranas, anemia, anginas, 
+        anorexia, aterosclerosis, artritis, asma, atonia_estomacal, bazo, inflamacion, 
+        estomatitis, bronquitis, bronconeumonia, caida_de_cabello, calambres, calculos_biliares, 
+        calculos_renales, callos, caries, caspa, cancer_del_utero, ciatica, circulacion, 
+        cistitis, colicos, colitis, contusiones, depurativos_de_sangre, diabetes, diarrea, 
+        diarrea_con_sangre, difteria, disenteria, dispepsia, dolor, empacho, enteritis, 
+        epilepsia, epistaxis, erisipela, escarlatina, escorbuto, estrenimiento, faringitis, 
+        flatulencias, flebitis, flema, forunculos, gastralgia, gonorrea, gota, agrieras_del_ano, 
+        grietas_del_pezon, gripe, halitosis, hemorragia_interna, hepatitis, hernia, herpes, 
+        heridas, hidropesia, higado, bilis, hipertension, hipotension, hipo, histerismo, insomnio, 
+        intestino, impotencia_sexual
+    ],
+    llenar_combo_box(ComboBox, Enfermedades).
 
 % Buscar y mostrar informacion de la planta
 buscar_planta(Nombre) :-
@@ -242,6 +349,14 @@ mostrar_plantas_por_grupo(Grupo) :-
     grupo_planta(Grupo, Plantas),
     atomic_list_concat(Plantas, ', ', PlantasStr),
     new(D, dialog(string('%s', Grupo))),
+    send(D, append, new(L, label(plantas, PlantasStr))),
+    send(D, open).
+
+% Mostrar plantas por enfermedad
+mostrar_plantas_por_enfermedad(Enfermedad) :-
+    enfermedad_planta(Enfermedad, Plantas),
+    atomic_list_concat(Plantas, ', ', PlantasStr),
+    new(D, dialog(string('Plantas que curan %s', Enfermedad))),
     send(D, append, new(L, label(plantas, PlantasStr))),
     send(D, open).
 
